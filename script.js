@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dayList = document.getElementById('dayList');
 
     // Função para atualizar a tabela com base nas entradas salvas
-const updateDayList = () => {
+        const updateDayList = () => {
         dayList.innerHTML = ''; // Limpar a tabela antes de adicionar novos elementos
         const headerRow = dayList.insertRow(0); // Criar o cabeçalho da tabela
         const headerDate = headerRow.insertCell(0);
@@ -63,8 +63,11 @@ const updateDayList = () => {
             cellDate.style.cursor = 'pointer';
             cellColor.style.cursor = 'pointer';
 
-            // Criar um degradê de cores para as emoções
+               if (entry.emotions.length === 1) {
+            cellColor.style.backgroundColor = emotions[entry.emotions[0]];
+        } else {
             cellColor.style.background = `linear-gradient(to right, ${entry.emotions.map(emotion => emotions[emotion]).join(', ')})`;
+        }
 
             cellDate.addEventListener('click', function() {
                 alert(entry.description); // Mostrar descrição
@@ -124,6 +127,9 @@ const updateDayList = () => {
         emotionDropdown.appendChild(option);
     }
 
+
+
+
     document.getElementById('addDayBtn').addEventListener('click', function() {
         document.getElementById('modal').style.display = 'block';
         document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
@@ -157,5 +163,22 @@ const updateDayList = () => {
         document.getElementById('modal').style.display = 'none';
     });
 
+
     updateDayList(); // Atualizar a tabela ao carregar a página
 });
+
+document.getElementById('infoIcon').addEventListener('click', function() {
+    document.getElementById('infoModal').style.display = 'block';
+});
+
+// Fechar o modal quando o usuário clicar no 'X'
+document.querySelector('#infoModal .close').addEventListener('click', function() {
+    document.getElementById('infoModal').style.display = 'none';
+});
+
+// Fechar o modal quando o usuário clicar fora dele
+window.onclick = function(event) {
+    if (event.target == document.getElementById('infoModal')) {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+};
