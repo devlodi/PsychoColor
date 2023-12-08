@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Emoções</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="https://raw.githubusercontent.com/devlodi/PsychoColor/main/PsychoColor_header.webp" alt="Header Image">
+    </header>
+    <button id="addDayBtn">ADICIONAR COMO FOI SEU DIA</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <input type="date" id="dateInput" value="">
+            <p>ESCREVA COMO FOI SEU DIA</p>
+            <textarea id="dayDescription"></textarea>
+            <select id="emotionDropdown">
+                <!-- Opções de emoções serão adicionadas via JavaScript -->
+            </select>
+            <button id="addEmotionBtn">+</button>
+            <div id="emotionList"></div>
+            <button id="saveDayBtn">SALVAR DIA</button>
+        </div>
+    </div>
+
+    <table id="dayList">
+        <tr>
+            <th>DIA</th>
+            <th>COLOR</th>
+        </tr>
+        <!-- Itens adicionados dinamicamente aqui -->
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
