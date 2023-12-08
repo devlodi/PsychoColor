@@ -1,36 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
     const emotions = {
-        "Felicidade": "#FFD700",
-        "Tristeza": "#0000FF",
-        "Raiva": "#FF0000",
-        "Surpresa": "#FFA500",
-        "Medo": "#008000",
-        "Amor": "#FF1493",
-        "Nojo": "#800080",
-        "Empolgação": "#FF4500",
-        "Calma": "#00CED1",
-        "Ansiedade": "#FF6347",
-        "Esperança": "#00FF00",
-        "Confusão": "#FFFF00",
-        "Alegria": "#FF69B4",
-        "Desgosto": "#008080",
-        "Compaixão": "#FFC0CB",
-        "Orgulho": "#800000",
-        "Timidez": "#FFB6C1",
-        "Gratidão": "#DAA520",
-        "Desespero": "#800000",
-        "Euforia": "#FFD700",
-        "Curiosidade": "#9370DB",
-        "Indiferença": "#C0C0C0",
-        "Inveja": "#228B22",
-        "Coragem": "#800080",
-        "Desconfiança": "#FF6347",
-        "Frustração": "#800080",
-        "Solidão": "#4682B4",
-        "Humildade": "#FFFF00",
-        "Nostalgia": "#D2691E",
-        "Esgotamento": "#708090"
-    };
+    "Felicidade": "#FFEA00", // Amarelo mais brilhante
+    "Tristeza": "#3174AD", // Azul menos saturado
+    "Raiva": "#D32F2F", // Vermelho com um tom mais escuro
+    "Surpresa": "#FFA726", // Laranja mais suave
+    "Medo": "#37474F", // Verde escuro acinzentado
+    "Amor": "#E91E63", // Rosa mais profundo
+    "Nojo": "#9C27B0", // Roxo mais vibrante
+    "Empolgação": "#FF7043", // Laranja avermelhado
+    "Calma": "#4DB6AC", // Turquesa suave
+    "Ansiedade": "#FF8A65", // Salmão claro
+    "Esperança": "#66BB6A", // Verde claro esperançoso
+    "Confusão": "#FFEB3B", // Amarelo mais claro
+    "Alegria": "#FF4081", // Rosa quente
+    "Desgosto": "#546E7A", // Azul petróleo
+    "Compaixão": "#FFCDD2", // Rosa pálido
+    "Orgulho": "#673AB7", // Roxo mais escuro e saturado
+    "Timidez": "#F8BBD0", // Rosa claro suave
+    "Gratidão": "#FFC107", // Âmbar
+    "Desespero": "#795548", // Marrom, associado à terra
+    "Euforia": "#FBC02D", // Amarelo dourado
+    "Curiosidade": "#7E57C2", // Roxo suave
+    "Indiferença": "#9E9E9E", // Cinza médio
+    "Inveja": "#2E7D32", // Verde escuro
+    "Coragem": "#D84315", // Laranja queimado
+    "Desconfiança": "#EF5350", // Vermelho coral
+    "Frustração": "#C62828", // Vermelho vinho
+    "Solidão": "#5C6BC0", // Azul calmo
+    "Humildade": "#FFEE58", // Amarelo limão
+    "Nostalgia": "#795548", // Marrom claro acinzentado
+    "Esgotamento": "#78909C" // Azul cinza
+    "Confiança": "#4e79a7", // Azul que denota confiabilidade
+    "Insegurança": "#f28e2c", // Laranja que pode implicar cautela
+    "Entusiasmo": "#e15759", // Vermelho vibrante para energia
+    "Paz": "#76b7b2", // Azul-verde calmo para tranquilidade
+    "Desilusão": "#af7aa1", // Lilás para sentimentos mistos
+    "Satisfação": "#ff9da7", // Rosa claro para contentamento
+    "Antecipação": "#9c755f", // Marrom para a expectativa de algo
+    "Apatia": "#bab0ab", // Cinza para falta de interesse
+    "Saudade": "#d4a6c8", // Roxo claro para memórias agridoces
+    "Alegria": "#edc949", // Amarelo brilhante para felicidade
+    "Melancolia": "#b07aa1", // Roxo acinzentado para tristeza reflexiva
+    "Alívio": "#76c7c2", // Azul-verde claro para sensação de alívio
+    "Empatia": "#59a14f", // Verde que implica compreensão e compartilhamento
+    "Exaustão": "#af7aa1", // Lilás desbotado para cansaço
+    "Vergonha": "#ff9d9a", // Vermelho pálido para constrangimento
+    "Culpa": "#f1ce63", // Amarelo mostarda para desconforto
+    "Entediamento": "#e8c3b9", // Bege para tédio
+    "Admiração": "#8cd17d", // Verde claro para respeito e admiração
+    "Surpresa Positiva": "#c5a5cf", // Lavanda para surpresas agradáveis
+    "Surpresa Negativa": "#e15759", // Vermelho para choque ou surpresa desagradável
+    "Ciúmes": "#b6992d", // Ouro velho para inveja ou desejo
+    "Orgulho": "#499894", // Verde-azulado para autoestima positiva
+    "Pânico": "#d37295", // Rosa-choque para um estado de alarme extremo
+    "Contentamento": "#86bc9e", // Verde suave para satisfação e calma
+};
+
 
    // Carregar entradas do Local Storage ou iniciar um objeto vazio se não houver nada salvo
     let currentEntries = JSON.parse(localStorage.getItem('entries')) || {};
