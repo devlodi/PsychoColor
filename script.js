@@ -1,36 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
     const emotions = {
-    "Felicidade": "#FFEA00", // Amarelo mais brilhante
-    "Tristeza": "#3174AD", // Azul menos saturado
-    "Raiva": "#D32F2F", // Vermelho com um tom mais escuro
-    "Surpresa": "#FFA726", // Laranja mais suave
-    "Medo": "#37474F", // Verde escuro acinzentado
-    "Amor": "#E91E63", // Rosa mais profundo
-    "Nojo": "#9C27B0", // Roxo mais vibrante
-    "Empolgação": "#FF7043", // Laranja avermelhado
-    "Calma": "#4DB6AC", // Turquesa suave
-    "Ansiedade": "#FF8A65", // Salmão claro
-    "Esperança": "#66BB6A", // Verde claro esperançoso
-    "Confusão": "#FFEB3B", // Amarelo mais claro
-    "Alegria": "#FF4081", // Rosa quente
-    "Desgosto": "#546E7A", // Azul petróleo
-    "Compaixão": "#FFCDD2", // Rosa pálido
-    "Orgulho": "#673AB7", // Roxo mais escuro e saturado
-    "Timidez": "#F8BBD0", // Rosa claro suave
-    "Gratidão": "#FFC107", // Âmbar
-    "Desespero": "#795548", // Marrom, associado à terra
-    "Euforia": "#FBC02D", // Amarelo dourado
-    "Curiosidade": "#7E57C2", // Roxo suave
-    "Indiferença": "#9E9E9E", // Cinza médio
-    "Inveja": "#2E7D32", // Verde escuro
-    "Coragem": "#D84315", // Laranja queimado
-    "Desconfiança": "#EF5350", // Vermelho coral
-    "Frustração": "#C62828", // Vermelho vinho
-    "Solidão": "#5C6BC0", // Azul calmo
-    "Humildade": "#FFEE58", // Amarelo limão
-    "Nostalgia": "#795548", // Marrom claro acinzentado
-    "Esgotamento": "#78909C" // Azul cinza
-    "Confiança": "#4e79a7", // Azul que denota confiabilidade
+        "Felicidade": "#FFD700",
+        "Tristeza": "#0000FF",
+        "Raiva": "#FF0000",
+        "Surpresa": "#FFA500",
+        "Medo": "#008000",
+        "Amor": "#FF1493",
+        "Nojo": "#800080",
+        "Empolgação": "#FF4500",
+        "Calma": "#00CED1",
+        "Ansiedade": "#FF6347",
+        "Esperança": "#00FF00",
+        "Confusão": "#FFFF00",
+        "Alegria": "#FF69B4",
+        "Desgosto": "#008080",
+        "Compaixão": "#FFC0CB",
+        "Orgulho": "#800000",
+        "Timidez": "#FFB6C1",
+        "Gratidão": "#DAA520",
+        "Desespero": "#800000",
+        "Euforia": "#FFD700",
+        "Curiosidade": "#9370DB",
+        "Indiferença": "#C0C0C0",
+        "Inveja": "#228B22",
+        "Coragem": "#800080",
+        "Desconfiança": "#FF6347",
+        "Frustração": "#800080",
+        "Solidão": "#4682B4",
+        "Humildade": "#FFFF00",
+        "Nostalgia": "#D2691E",
+        "Esgotamento": "#708090",
+         "Confiança": "#4e79a7", // Azul que denota confiabilidade
     "Insegurança": "#f28e2c", // Laranja que pode implicar cautela
     "Entusiasmo": "#e15759", // Vermelho vibrante para energia
     "Paz": "#76b7b2", // Azul-verde calmo para tranquilidade
@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
     "Orgulho": "#499894", // Verde-azulado para autoestima positiva
     "Pânico": "#d37295", // Rosa-choque para um estado de alarme extremo
     "Contentamento": "#86bc9e" // Verde suave para satisfação e calma
-};
+
+    };
 
 
    // Carregar entradas do Local Storage ou iniciar um objeto vazio se não houver nada salvo
