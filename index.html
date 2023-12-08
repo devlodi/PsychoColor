@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Emoções</title>
+    <title>PsychoColor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,12 +11,32 @@
         <img src="https://raw.githubusercontent.com/devlodi/PsychoColor/main/PsychoColor_header.webp" alt="Header Image">
     </header>
     <button id="addDayBtn">ADICIONAR COMO FOI SEU DIA</button>
+<span id="infoIcon" style="cursor: pointer;">❗</span>
+
+<div id="infoModal" class="modal infoModalStyle">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Bem-Vindo ao PsychoColor!</h2>
+        <p>Esta página é uma ferramenta interativa para ajudá-lo(a) a registrar e acompanhar suas emoções diárias. Ela foi criada para fornecer uma visão clara de como você se sente ao longo do tempo, possibilitando uma melhor compreensão de suas emoções e padrões de humor.</p>
+
+        <h3>Como Funciona:</h3>
+        <ul>
+            <li><strong>Adicionar Registro de Emoções</strong>: Clique no botão "ADICIONAR COMO FOI SEU DIA" para abrir um formulário. No formulário, selecione a data e escreva um breve resumo sobre como foi o seu dia. Escolha as emoções que você sentiu durante o dia a partir de uma lista suspensa. Você pode adicionar várias emoções.</li>
+            <li><strong>Salvar e Visualizar Registros</strong>: Após adicionar as emoções, clique em "SALVAR DIA" para armazenar seu registro. Todos os registros salvos aparecerão em uma tabela na página principal, onde cada registro mostra a data e uma cor representativa das emoções registradas.</li>
+            <li><strong>Editar ou Excluir Registros</strong>: Na tabela, cada registro tem opções para edição e exclusão. Use estas opções para manter seus registros atualizados ou remover entradas antigas.</li>
+        </ul>
+
+        <p>Utilize esta ferramenta para refletir sobre seus dias e sentimentos, criando um diário colorido e informativo sobre seu bem-estar emocional. Esperamos que ela ajude você a entender melhor suas emoções e a promover o autoconhecimento!</p>
+    </div>
+</div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
             <input type="date" id="dateInput" value="">
             <p>ESCREVA COMO FOI SEU DIA</p>
             <textarea id="dayDescription"></textarea>
+
+            <h4>Adicione suas emoções do dia</h4>
             <select id="emotionDropdown">
                 <!-- Opções de emoções serão adicionadas via JavaScript -->
             </select>
