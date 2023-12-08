@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+     padding: 20px;
     color: #333; /* Cor mais suave para o texto */
 }
 
@@ -41,31 +41,22 @@ button:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
-    /* Adicionando transição para o modal aparecer suavemente */
-    transition: opacity 0.3s ease;
 }
 
 .modal-content {
+    border-radius: 10px;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: none; /* Remover borda para um visual mais limpo */
-    border-radius: 8px; /* Borda arredondada */
-    width: 90%; /* Largura ajustada para mobile */
-    max-width: 500px; /* Largura máxima para telas maiores */
-    box-shadow: 0 2px 10px rgba(0,0,0,.2); /* Sombra para dar profundidade */
+    border: 1px solid #888;
+    width: 80%;
 }
 
 textarea {
-    margin: 10px;
     width: 100%;
     height: 100px;
-    border-radius: 5px; /* Borda arredondada */
-    border: 1px solid #ddd; /* Bordas mais suaves */
-    padding: 10px; /* Espaçamento interno */
-    margin-bottom: 10px; /* Espaço entre os elementos */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1); /* Sombra interna suave */
 }
+
 
 table {
     width: 100%;
@@ -75,7 +66,7 @@ table {
 
 th, td {
     border: 1px solid #ddd; /* Bordas mais suaves */
-    padding: 12px 8px; /* Espaçamento maior dentro das células */
+    padding: 0px 12px; /* Espaçamento maior dentro das células */
     text-align: left;
 }
 
@@ -128,5 +119,68 @@ th.actions, td.actions {
     width: 1%; /* Faz a coluna ser o mais estreita possível, contendo os ícones */
     white-space: nowrap; /* Evita que o conteúdo da célula quebre em várias linhas */
     text-align: center; /* Centraliza os ícones */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+#infoIcon {
+    animation: bounce 1s infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.infoModalStyle {
+    background-color: #fff; /* Fundo branco para destacar o conteúdo */
+    border-radius: 10px; /* Bordas arredondadas para um visual suave */
+    padding: 20px; /* Espaçamento interno */
+    width: 80%; /* Largura adaptável ao conteúdo */
+    max-width: 500px; /* Largura máxima para dispositivos maiores */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidade */
+    position: fixed; /* Fixo na tela */
+    left: 50%; /* Centralização horizontal */
+    top: 50%; /* Centralização vertical */
+    transform: translate(-50%, -50%); /* Ajuste fino da centralização */
+    z-index: 1000; /* Garantir que fique acima de outros elementos */
+}
+
+.infoModalStyle h2 {
+    color: #333; /* Cor escura para o título */
+    font-size: 1.5em; /* Tamanho maior para o título */
+    margin-top: 0; /* Sem margem no topo para alinhar com o fechar */
+    padding-bottom: 10px; /* Espaçamento abaixo do título */
+    border-bottom: 1px solid #eee; /* Linha sutil abaixo do título */
+    text-align: center; /* Centralizar o título */
+}
+
+.infoModalStyle p,
+.infoModalStyle ul {
+    color: #555; /* Cor para texto normal */
+    font-size: 1em; /* Tamanho padrão do texto */
+    line-height: 1.6; /* Espaçamento entre linhas para leitura confortável */
+    text-align: justify; /* Justificar o texto para melhor fluidez */
+}
+
+.infoModalStyle .close {
+    position: absolute; /* Posicionamento absoluto */
+    right: 10px; /* Direita da caixa de diálogo */
+    top: 10px; /* Topo da caixa de diálogo */
+    background: transparent; /* Sem fundo */
+    border: none; /* Sem borda */
+    font-size: 1.5em; /* Tamanho do ícone de fechar */
+    cursor: pointer; /* Mãozinha ao passar o mouse */
+}
+
+.infoModalStyle .close:hover {
+    color: #000; /* Cor ao passar o mouse */
 }
 
