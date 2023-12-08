@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "Ciúmes": "#b6992d", // Ouro velho para inveja ou desejo
     "Orgulho": "#499894", // Verde-azulado para autoestima positiva
     "Pânico": "#d37295", // Rosa-choque para um estado de alarme extremo
-    "Contentamento": "#86bc9e", // Verde suave para satisfação e calma
+    "Contentamento": "#86bc9e" // Verde suave para satisfação e calma
 };
 
 
