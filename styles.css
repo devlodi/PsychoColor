@@ -135,7 +135,29 @@ td {
     background-color: #ffffff; /* Cor de fundo para as células */
 }
 
+#emotionList::-webkit-scrollbar {
+    width: 12px;
+}
+
+#emotionList::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff69b4, #1e90ff); /* Degradê diagonal do rosa para o azul */
+    border-radius: 6px;
+}
+#emotionList {
+    scrollbar-width: thin;
+    scrollbar-color: #ff69b4 #1e90ff; /* Cor sólida para o manipulador e o trilho */
+}
+
+
+
+
+#emotionList {
+    max-height: 220px; /* ou qualquer altura que funcione bem para o seu layout */
+    overflow-y: scroll; /* Isso irá sempre mostrar a barra de rolagem vertical */
+}
+
 #emotionList div {
+
     margin: 5px;
     padding: 5px;
     border: 1px solid #ddd;
@@ -277,3 +299,4 @@ th.actions, td.actions {
     border-radius: 5px; /* Bordas arredondadas para o gradiente */
     margin-top: 20px; /* Espaço acima do gradiente */
 }
+
