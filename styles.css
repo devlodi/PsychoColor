@@ -84,6 +84,7 @@ button:hover {
 }
 
 .modal-content {
+    position: relative;
     border-radius: 10px;
     background-color: #fefefe;
     margin: 15% auto;
@@ -91,6 +92,21 @@ button:hover {
     border: 1px solid #888;
     width: 80%;
 }
+
+.modal-content .close {
+    position: absolute; /* Permite posicionar o botão no canto superior direito do modal */
+    right: 10px; /* Posiciona o botão a 10px da borda direita */
+    top: 10px; /* Posiciona o botão a 10px da borda superior */
+    font-size: 1.5em; /* Define um tamanho grande para que seja fácil clicar */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.modal-content .close:hover {
+    color: #000; /* Muda a cor quando o mouse está em cima para dar feedback visual */
+}
+
+
+
 
 textarea {
     width: 100%;
