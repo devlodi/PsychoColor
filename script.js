@@ -172,19 +172,50 @@ window.onclick = function(event) {
 
 
     // Funções de editar e excluir
-    const editEntry = (date) => {
-        const entry = currentEntries[date];
-        document.getElementById('dateInput').value = date;
-        document.getElementById('dayDescription').value = entry.description;
-        emotionList.innerHTML = '';
-        entry.emotions.forEach(emotion => {
-            const emotionDiv = document.createElement('div');
-            emotionDiv.textContent = emotion;
-            emotionDiv.style.backgroundColor = emotions[emotion];
-            emotionList.appendChild(emotionDiv);
+const editEntry = (date) => {
+    const entry = currentEntries[date];
+    document.getElementById('dateInput').value = date;
+    document.getElementById('dayDescription').value = entry.description;
+    emotionList.innerHTML = ''; // Limpar a lista de emoções
+
+    // Reconstruir cada item de emoção como no processo de adição
+    entry.emotions.forEach(emotion => {
+        const emotionItem = document.createElement('div');
+        emotionItem.className = 'emotion-item';
+        emotionItem.style.display = 'flex';
+        emotionItem.style.alignItems = 'center';
+        emotionItem.style.margin = '5px';
+
+        // Div de cor de emoção (indicador visual)
+        const emotionColor = document.createElement('div');
+        emotionColor.className = 'emotion-color';
+        emotionColor.style.backgroundColor = emotions[emotion];
+        emotionColor.style.width = '20px';
+        emotionColor.style.height = '20px';
+        emotionColor.style.borderRadius = '50%';
+        emotionColor.style.marginRight = '10px';
+        emotionColor.setAttribute('data-emotion', emotion);
+
+        // Botão 'x' para remover emoção
+        const emotionDeleteBtn = document.createElement('span');
+        emotionDeleteBtn.textContent = '×';
+        emotionDeleteBtn.className = 'emotion-delete-btn';
+        emotionDeleteBtn.style.cursor = 'pointer';
+        emotionDeleteBtn.style.marginLeft = '5px';
+        emotionDeleteBtn.addEventListener('click', function() {
+            emotionList.removeChild(emotionItem);
         });
-        document.getElementById('modal').style.display = 'block';
-    };
+
+        emotionItem.appendChild(emotionColor); // Adicionar o indicador de cor
+        emotionItem.appendChild(document.createTextNode(emotion)); // Adicionar o nome da emoção
+        emotionItem.appendChild(emotionDeleteBtn); // Adicionar o botão 'x'
+
+        emotionList.appendChild(emotionItem); // Adicionar o item de emoção à lista
+    });
+
+    document.getElementById('modal').style.display = 'block';
+};
+
 
     const deleteEntry = (date) => {
         if (confirm('Tem certeza que deseja excluir esta entrada?')) {
@@ -209,33 +240,73 @@ window.onclick = function(event) {
         document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
     });
 
-    document.getElementById('addEmotionBtn').addEventListener('click', function() {
-        const selectedEmotion = emotionDropdown.value;
-        const emotionDiv = document.createElement('div');
-        emotionDiv.textContent = selectedEmotion;
-        emotionDiv.style.backgroundColor = emotions[selectedEmotion];
-        emotionList.appendChild(emotionDiv);
+document.getElementById('addEmotionBtn').addEventListener('click', function() {
+    const selectedEmotion = emotionDropdown.value;
+
+    // Criar o contêiner para a emoção e o botão 'x'
+    const emotionItem = document.createElement('div');
+    emotionItem.className = 'emotion-item';
+    emotionItem.style.display = 'flex';
+    emotionItem.style.alignItems = 'center';
+    emotionItem.style.margin = '5px';
+
+    // Criar o indicador de cor da emoção
+    const emotionColor = document.createElement('div');
+    emotionColor.className = 'emotion-color';
+    emotionColor.style.backgroundColor = emotions[selectedEmotion];
+    emotionColor.style.width = '20px';
+    emotionColor.style.height = '20px';
+    emotionColor.style.borderRadius = '50%';
+    emotionColor.style.marginRight = '10px';
+
+    // Armazenar o nome da emoção em um atributo data para fácil acesso
+    emotionColor.setAttribute('data-emotion', selectedEmotion);
+
+    // Criar o botão 'x' para excluir a emoção
+    const emotionDeleteBtn = document.createElement('span');
+    emotionDeleteBtn.textContent = '×';
+    emotionDeleteBtn.className = 'emotion-delete-btn';
+    emotionDeleteBtn.style.cursor = 'pointer';
+    emotionDeleteBtn.style.marginLeft = '5px';
+
+    // Adicionar evento de clique para o botão 'x'
+    emotionDeleteBtn.addEventListener('click', function() {
+        emotionList.removeChild(emotionItem);
     });
 
-    document.getElementById('saveDayBtn').addEventListener('click', function() {
-        const date = document.getElementById('dateInput').value;
-        const description = document.getElementById('dayDescription').value;
-        const emotionsForDay = [...emotionList.childNodes].map(node => node.textContent);
+    // Montar o item da emoção
+    emotionItem.appendChild(emotionColor);
+    emotionItem.appendChild(document.createTextNode(selectedEmotion));
+    emotionItem.appendChild(emotionDeleteBtn);
 
-        // Salvar a entrada no objeto e no Local Storage
-        currentEntries[date] = {
-            description,
-            emotions: emotionsForDay
-        };
-        localStorage.setItem('entries', JSON.stringify(currentEntries));
+    // Adicionar o item da emoção à lista
+    emotionList.appendChild(emotionItem);
+});
 
-        updateDayList(); // Atualizar a tabela com as novas entradas
 
-        // Limpar o modal
-        emotionList.innerHTML = '';
-        document.getElementById('dayDescription').value = '';
-        document.getElementById('modal').style.display = 'none';
-    });
+
+
+document.getElementById('saveDayBtn').addEventListener('click', function() {
+    const date = document.getElementById('dateInput').value;
+    const description = document.getElementById('dayDescription').value;
+
+    // Colete apenas os nomes das emoções, ignorando o botão 'x'
+    const emotionsForDay = [...emotionList.querySelectorAll('.emotion-color')].map(el => el.getAttribute('data-emotion'));
+
+    // Salvar a entrada no objeto e no Local Storage
+    currentEntries[date] = {
+        description,
+        emotions: emotionsForDay
+    };
+    localStorage.setItem('entries', JSON.stringify(currentEntries));
+
+    updateDayList(); // Atualizar a tabela com as novas entradas
+
+    // Limpar o modal
+    emotionList.innerHTML = '';
+    document.getElementById('dayDescription').value = '';
+    document.getElementById('modal').style.display = 'none';
+});
 
 
     updateDayList(); // Atualizar a tabela ao carregar a página
