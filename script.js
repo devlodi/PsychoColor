@@ -256,3 +256,17 @@ window.onclick = function(event) {
         document.getElementById('infoModal').style.display = 'none';
     }
 };
+
+
+// JavaScript para fechar o modal
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Quando o documento estiver carregado, configure o ouvinte de eventos
+    var closeModalButtons = document.querySelectorAll('.close'); // Seleciona todos os botões de fechar
+
+    closeModalButtons.forEach(function(btn) {
+        btn.onclick = function() {
+            var modal = btn.closest('.modal'); // Encontra o modal mais próximo do botão
+            modal.style.display = 'none'; // Esconde o modal
+        };
+    });
+});
