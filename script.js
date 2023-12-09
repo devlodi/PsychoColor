@@ -61,6 +61,54 @@ document.addEventListener('DOMContentLoaded', function() {
    // Carregar entradas do Local Storage ou iniciar um objeto vazio se não houver nada salvo
     let currentEntries = JSON.parse(localStorage.getItem('entries')) || {};
 
+document.getElementById('summaryBtn').addEventListener('click', function() {
+    const emotionsCount = {};
+    // Calcular a contagem de cada emoção
+    for (const date in currentEntries) {
+        currentEntries[date].emotions.forEach(emotion => {
+            if (!emotionsCount[emotion]) {
+                emotionsCount[emotion] = 0;
+            }
+            emotionsCount[emotion]++;
+        });
+    }
+
+    // Atualizar o modal com as contagens
+    const emotionsCountDiv = document.getElementById('emotionsCount');
+    emotionsCountDiv.innerHTML = ''; // Limpar as contagens anteriores
+    let gradientColors = []; // Para armazenar as cores que serão usadas no gradiente
+
+    for (const [emotion, count] of Object.entries(emotionsCount)) {
+        emotionsCountDiv.innerHTML += `<p>${emotion}: ${count} vezes</p>`;
+        // Adicionar a cor dessa emoção ao array de gradientes, multiplicado pela contagem
+        gradientColors.push(...Array(count).fill(emotions[emotion]));
+    }
+
+    // Atualizar o gradiente de cores com as cores das emoções que foram contadas
+    const emotionsGradientDiv = document.getElementById('emotionsGradient');
+    emotionsGradientDiv.style.background = `linear-gradient(to right, ${gradientColors.join(', ')})`;
+
+    // Exibir o modal
+    document.getElementById('summaryModal').style.display = 'block';
+});
+
+// Fechar o modal de resumo
+document.querySelector('#summaryModal .closeSummary').addEventListener('click', function() {
+    document.getElementById('summaryModal').style.display = 'none';
+});
+
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('summaryModal')) {
+        document.getElementById('summaryModal').style.display = 'none';
+    }
+};
+
+
+
+
+
+
     const emotionDropdown = document.getElementById('emotionDropdown');
     const emotionList = document.getElementById('emotionList');
     const dayList = document.getElementById('dayList');
