@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-     padding: 20px;
+    padding: 20px;
     color: #333; /* Cor mais suave para o texto */
 }
 
@@ -181,6 +181,7 @@ th.actions, td.actions {
 }
 
 .infoModalStyle {
+    max-height: 85%;
     background-color: #fff; /* Fundo branco para destacar o conteúdo */
     border-radius: 10px; /* Bordas arredondadas para um visual suave */
     padding: 20px; /* Espaçamento interno */
