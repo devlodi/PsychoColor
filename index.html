@@ -10,8 +10,14 @@
     <header>
         <img src="https://raw.githubusercontent.com/devlodi/PsychoColor/main/PsychoColor_header.webp" alt="Header Image">
     </header>
+<div class="button-group">
     <button id="addDayBtn">ADICIONAR COMO FOI SEU DIA</button>
-<span id="infoIcon" style="cursor: pointer;">❗</span>
+    <span id="infoIcon" style="cursor: pointer;">❗ INFO</span>
+</div>
+<div class="button-group">
+    <button id="summaryBtn">RESUMIN</button>
+</div>
+
 
 <div id="infoModal" class="modal infoModalStyle">
     <div class="modal-content">
@@ -29,6 +35,20 @@
         <p>Utilize esta ferramenta para refletir sobre seus dias e sentimentos, criando um diário colorido e informativo sobre seu bem-estar emocional. Esperamos que ela ajude você a entender melhor suas emoções e a promover o autoconhecimento!</p>
     </div>
 </div>
+
+<div id="summaryModal" class="modal summaryModalStyle">
+    <div class="modal-content">
+        <span class="closeSummary">&times;</span>
+        <h2>Resumo das Emoções</h2>
+        <div id="emotionsCount"></div>
+        <div id="emotionsGradient"></div>
+    </div>
+</div>
+
+
+
+
+
 
     <div id="modal" class="modal">
         <div class="modal-content">
