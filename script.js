@@ -225,12 +225,13 @@ const editEntry = (date) => {
         }
     };
 
-    for (const emotion in emotions) {
-        const option = document.createElement('option');
-        option.value = emotion;
-        option.textContent = emotion;
-        emotionDropdown.appendChild(option);
-    }
+for (const emotion in emotions) {
+    const option = document.createElement('option');
+    option.value = emotion;
+    option.textContent = emotion;
+    option.style.backgroundColor = emotions[emotion]; // Define a cor de fundo da opção
+    emotionDropdown.appendChild(option);
+}
 
 
 
